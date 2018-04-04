@@ -63,7 +63,7 @@ PROCESS_THREAD(receiver, ev, data)
     	PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
 	
 	temp++;
-	printf("blah: %d\n", temp);
+	//printf("blah: %d\n", temp);
   }
 
   PROCESS_END();

@@ -12,7 +12,7 @@
 volatile int current_rssi;
 
 //number of transmissions at each power level
-#define NUM_TRANS 20
+#define NUM_TRANS 50
 
 #define TX_BUF_LEN 6
 char tx_buf[TX_BUF_LEN];
