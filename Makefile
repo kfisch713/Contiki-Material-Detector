@@ -1,11 +1,10 @@
-CONTIKI = ../
+CONTIKI = ..
 ifndef TARGET
 TARGET=sky
 endif
 
-all: <INSERT FILE NAME HERE>
+all: sender receiver
 
-
-CONTIKI_WITH_IPV4 = 1
+PROJECT_SOURCEFILES += lookup.c
 CONTIKI_WITH_RIME = 1
 include $(CONTIKI)/Makefile.include
