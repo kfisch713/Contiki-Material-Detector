@@ -12,14 +12,14 @@
 volatile int current_rssi;
 
 //number of transmissions at each power level
-#define NUM_TRANS 50
+#define NUM_TRANS 20
 
 #define TX_BUF_LEN 6
 char tx_buf[TX_BUF_LEN];
 
 
 //variables to control tx power
-int tx_pow[] = {3, 5, 11, 23, 30};
+extern int tx_pow[NUM_POWER_LEVELS];
 
 volatile int power_level_index = 0;
 volatile int transmission_counter = 0;
@@ -101,7 +101,7 @@ PROCESS_THREAD(sender, ev, data)
     updateLEDs(power_level_index);
 
     //update tx_buf
-    sprintf(tx_buf, "%d", tx_pow[power_level_index]);
+    sprintf(tx_buf, "%d", power_level_index);
 
     /* Delay 2 seconds */
     etimer_set(&et, CLOCK_SECOND * 2);

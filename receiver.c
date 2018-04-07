@@ -6,18 +6,17 @@
 #include "cc2420.h"
 #include "cc2420_const.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "lookup.h"
-
-//number of transmissions at each power level
-#define NUM_TRANS 20
-
-#define TX_BUF_LEN 6
-char tx_buf[TX_BUF_LEN];
+#define DEBUG 1
 
 
 //global variables
 volatile int recv_rssi;
+volatile int tx_pow_index;
+double avg_rssi[NUM_POWER_LEVELS][NUM_MATERIALS];
+extern int tx_pow[NUM_POWER_LEVELS];
 
 
 /*---------------------------------------------------------------------------*/
@@ -31,7 +30,13 @@ broadcast_recv(struct broadcast_conn *c, const linkaddr_t *from)
 	recv_rssi = packetbuf_attr(PACKETBUF_ATTR_RSSI);
   
 	//print power level and rssi
-	printf("%s, %d\n", (char *)packetbuf_dataptr(), recv_rssi);
+	tx_pow_index = atoi((char *)packetbuf_dataptr());
+	if(DEBUG){
+		printf("%d, %d\n", tx_pow[tx_pow_index], recv_rssi);
+		printf("index: %d\n", tx_pow_index);
+	}
+
+	print_guess( make_guess(tx_pow_index, recv_rssi, avg_rssi));
 }
 static const struct broadcast_callbacks broadcast_call = {broadcast_recv};
 static struct broadcast_conn broadcast;
@@ -45,7 +50,7 @@ PROCESS_THREAD(receiver, ev, data)
 
   PROCESS_EXITHANDLER(broadcast_close(&broadcast);)
 
-  setupMaterial();
+  setupMaterial(avg_rssi);
 
   PROCESS_BEGIN();
 
