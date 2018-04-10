@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 #include "lookup.h"
-#define DEBUG 1
+#define DEBUG 0
 
 
 //global variables
@@ -32,7 +32,7 @@ broadcast_recv(struct broadcast_conn *c, const linkaddr_t *from)
 	//print power level and rssi
 	tx_pow_index = atoi((char *)packetbuf_dataptr());
 	if(DEBUG){
-		printf("%d, %d\n", tx_pow[tx_pow_index], recv_rssi);
+		printf("power level: %2d, RSSI: %2d\n", tx_pow[tx_pow_index], recv_rssi);
 		printf("index: %d\n", tx_pow_index);
 	}
 

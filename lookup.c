@@ -7,35 +7,35 @@ int tx_pow[] = {3, 5, 11, 23, 30};
 used to initialize the material structs
 */
 void setupMaterial(double arr[NUM_POWER_LEVELS][NUM_MATERIALS]){
-	arr[0][NONE]    = -70.0;
-	arr[0][WOOD]    = 0.0;
-	arr[0][CERAMIC] = 0.0;
-	arr[0][METAL]   = 0.0;
-	arr[0][FOAM]    = 0.0;
+	arr[0][NONE]    = -63.0;
+	arr[0][WOOD]    = -64.0;
+	arr[0][CERAMIC] = -68.0;
+	arr[0][METAL]   = -53.0;
+	arr[0][FOAM]    = -64.0;
 
-	arr[1][NONE]    = 0.0;
-	arr[1][WOOD]    = -70.0;
-	arr[1][CERAMIC] = 0.0;
-	arr[1][METAL]   = 0.0;
-	arr[1][FOAM]    = 0.0;
+	arr[1][NONE]    = -56.0;
+	arr[1][WOOD]    = -54.0;
+	arr[1][CERAMIC] = -62.0;
+	arr[1][METAL]   = -51.0;
+	arr[1][FOAM]    = -58.0;
 
-	arr[2][NONE]    = 0.0;
-	arr[2][WOOD]    = 0.0;
-	arr[2][CERAMIC] = -70.0;
-	arr[2][METAL]   = 0.0;
-	arr[2][FOAM]    = 0.0;
+	arr[2][NONE]    = -47.0;
+	arr[2][WOOD]    = -49.0;
+	arr[2][CERAMIC] = -56.0;
+	arr[2][METAL]   = -42.0;
+	arr[2][FOAM]    = -52.0;
 
-	arr[3][NONE]    = 0.0;
-	arr[3][WOOD]    = 0.0;
-	arr[3][CERAMIC] = 0.0;
-	arr[3][METAL]   = -70.0;
-	arr[3][FOAM]    = 0.0;
+	arr[3][NONE]    = -41.0;
+	arr[3][WOOD]    = -41.0;
+	arr[3][CERAMIC] = -50.0;
+	arr[3][METAL]   = -38.0;
+	arr[3][FOAM]    = -43.0;
 
-	arr[4][NONE]    = 0.0;
-	arr[4][WOOD]    = 0.0;
-	arr[4][CERAMIC] = 0.0;
-	arr[4][METAL]   = 0.0;
-	arr[4][FOAM]    = -70.0;
+	arr[4][NONE]    = -39.0;
+	arr[4][WOOD]    = -37.0;
+	arr[4][CERAMIC] = -47.0;
+	arr[4][METAL]   = -33.0;
+	arr[4][FOAM]    = -41.0;
 }
 
 int make_guess(int power_level_index, int recv_rssi, double avg_rssi[NUM_POWER_LEVELS][NUM_MATERIALS]){
